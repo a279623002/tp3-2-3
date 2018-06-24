@@ -84,24 +84,26 @@ class IndexController extends Controller
             echo "<script>alert('内容不得为空');history.go(-1);</script>";
         } else if (empty($_FILES['file'])) {
             echo "<script>alert('请选择文件');history.go(-1);</script>";
-        }
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize = 3145728;// 设置附件上传大小
-        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
-        // 上传单个文件 
-        $info = $upload->uploadOne($_FILES['file']);
-        if (!$info) {// 上传错误提示错误信息
-            $this->error($upload->getError());
-        } else {// 上传成功 获取上传文件信息
-            $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
-            $Model = D('Info');
-            if ($Model->addInfo($data['title'], $data['content'], $img)) {
-                echo "<script>alert('添加成功');window.location.href='" . U('icolumn', '', '') . "';</script>";
-            } else {
-                echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+        }else {
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 3145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
+            // 上传单个文件 
+            $info = $upload->uploadOne($_FILES['file']);
+            if (!$info) {// 上传错误提示错误信息
+                $this->error($upload->getError());
+            } else {// 上传成功 获取上传文件信息
+                $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
+                $Model = D('Info');
+                if ($Model->addInfo($data['title'], $data['content'], $img)) {
+                    echo "<script>alert('添加成功');window.location.href='" . U('icolumn', '', '') . "';</script>";
+                } else {
+                    echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+                }
             }
         }
+   
     }
     // 栏目--》关于我们删除
     public function delInfo()
@@ -139,24 +141,26 @@ class IndexController extends Controller
             echo "<script>alert('内容不得为空');history.go(-1);</script>";
         } else if (empty($_FILES['file'])) {
             echo "<script>alert('请选择文件');history.go(-1);</script>";
-        }
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize = 3145728;// 设置附件上传大小
-        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
-        // 上传单个文件 
-        $info = $upload->uploadOne($_FILES['file']);
-        if (!$info) {// 上传错误提示错误信息
-            $this->error($upload->getError());
-        } else {// 上传成功 获取上传文件信息
-            $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
-            $Model = D('New');
-            if ($Model->addNew($data['title'], $data['content'], $img)) {
-                echo "<script>alert('添加成功');window.location.href='" . U('ncolumn', '', '') . "';</script>";
-            } else {
-                echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+        } else {
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 3145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
+            // 上传单个文件 
+            $info = $upload->uploadOne($_FILES['file']);
+            if (!$info) {// 上传错误提示错误信息
+                $this->error($upload->getError());
+            } else {// 上传成功 获取上传文件信息
+                $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
+                $Model = D('New');
+                if ($Model->addNew($data['title'], $data['content'], $img)) {
+                    echo "<script>alert('添加成功');window.location.href='" . U('ncolumn', '', '') . "';</script>";
+                } else {
+                    echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+                }
             }
         }
+
     }
     public function delNew()
     {
@@ -191,24 +195,26 @@ class IndexController extends Controller
             echo "<script>alert('内容不得为空');history.go(-1);</script>";
         } else if (empty($_FILES['file'])) {
             echo "<script>alert('请选择文件');history.go(-1);</script>";
-        }
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize = 3145728;// 设置附件上传大小
-        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
-        // 上传单个文件 
-        $info = $upload->uploadOne($_FILES['file']);
-        if (!$info) {// 上传错误提示错误信息
-            $this->error($upload->getError());
-        } else {// 上传成功 获取上传文件信息
-            $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
-            $Model = D('Product');
-            if ($Model->addPro($data['title'], $data['content'], $img)) {
-                echo "<script>alert('添加成功');window.location.href='" . U('pcolumn', '', '') . "';</script>";
-            } else {
-                echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+        } else {
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 3145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
+            // 上传单个文件 
+            $info = $upload->uploadOne($_FILES['file']);
+            if (!$info) {// 上传错误提示错误信息
+                $this->error($upload->getError());
+            } else {// 上传成功 获取上传文件信息
+                $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
+                $Model = D('Product');
+                if ($Model->addPro($data['title'], $data['content'], $img)) {
+                    echo "<script>alert('添加成功');window.location.href='" . U('pcolumn', '', '') . "';</script>";
+                } else {
+                    echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+                }
             }
         }
+
     }
     public function delPro()
     {
@@ -244,24 +250,26 @@ class IndexController extends Controller
             echo "<script>alert('内容不得为空');history.go(-1);</script>";
         } else if (empty($_FILES['file'])) {
             echo "<script>alert('请选择文件');history.go(-1);</script>";
-        }
-        $upload = new \Think\Upload();// 实例化上传类
-        $upload->maxSize = 3145728;// 设置附件上传大小
-        $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
-        $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
-        // 上传单个文件 
-        $info = $upload->uploadOne($_FILES['file']);
-        if (!$info) {// 上传错误提示错误信息
-            $this->error($upload->getError());
-        } else {// 上传成功 获取上传文件信息
-            $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
-            $Model = D('Case');
-            if ($Model->addCase($data['title'], $data['content'], $img)) {
-                echo "<script>alert('添加成功');window.location.href='" . U('ccolumn', '', '') . "';</script>";
-            } else {
-                echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+        } else {
+            $upload = new \Think\Upload();// 实例化上传类
+            $upload->maxSize = 3145728;// 设置附件上传大小
+            $upload->exts = array('jpg', 'gif', 'png', 'jpeg');// 设置附件上传类型
+            $upload->rootPath = 'Public/uploads/'; // 设置附件上传根目录
+            // 上传单个文件 
+            $info = $upload->uploadOne($_FILES['file']);
+            if (!$info) {// 上传错误提示错误信息
+                $this->error($upload->getError());
+            } else {// 上传成功 获取上传文件信息
+                $img = '/Public/uploads/' . $info['savepath'] . $info['savename'];
+                $Model = D('Case');
+                if ($Model->addCase($data['title'], $data['content'], $img)) {
+                    echo "<script>alert('添加成功');window.location.href='" . U('ccolumn', '', '') . "';</script>";
+                } else {
+                    echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+                }
             }
         }
+
     }
     public function delCase()
     {
@@ -295,14 +303,16 @@ class IndexController extends Controller
             echo "<script>alert('标题不得为空');history.go(-1);</script>";
         } else if (empty($data['src'])) {
             echo "<script>alert('请输入视频链接');history.go(-1);</script>";
+        } else {
+            $Model = D('Video');
+            if ($Model->addVideo($data['title'], $data['src'])) {
+                echo "<script>alert('添加成功');window.location.href='" . U('vcolumn', '', '') . "';</script>";
+            } else {
+                echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
+            }
         }
 
-        $Model = D('Video');
-        if ($Model->addVideo($data['title'], $data['src'])) {
-            echo "<script>alert('添加成功');window.location.href='" . U('vcolumn', '', '') . "';</script>";
-        } else {
-            echo "<script>alert('添加失败，请重试');history.go(-1);</script>";
-        }
+
 
     }
     public function delVideo()
