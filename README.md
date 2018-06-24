@@ -9,8 +9,8 @@
  配置Admin模块下的数据库信息（Admin/Conf/config.php）
  
  ```
- 	  //'配置项'=>'配置值'
-	  'DB_TYPE'               =>  'mysql',     // 数据库类型
+    //'配置项'=>'配置值'
+    'DB_TYPE'               =>  'mysql',     // 数据库类型
     'DB_HOST'               =>  'localhost', // 服务器地址
     'DB_NAME'               =>  'tp3-2-3',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名
@@ -20,8 +20,8 @@
 配置Home模块下的数据库信息（Home/Conf/config.php）
  
  ```
- 	  //'配置项'=>'配置值'
-	  'DB_TYPE'               =>  'mysql',     // 数据库类型
+    //'配置项'=>'配置值'
+    'DB_TYPE'               =>  'mysql',     // 数据库类型
     'DB_HOST'               =>  'localhost', // 服务器地址
     'DB_NAME'               =>  'tp3-2-3',          // 数据库名
     'DB_USER'               =>  'root',      // 用户名
