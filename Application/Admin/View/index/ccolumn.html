@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>栏目管理</title>
+
+  <!-- Bootstrap -->
+  <link href="__PUBLIC__/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="css/index.css"> -->
+  <link rel="stylesheet" type="text/css" href="__PUBLIC__/css/rightmain.css">
+</head>
+
+<body>
+  <div class="iframecontent">
+    <div class="pos">
+      <i class="icoh"></i>
+      <span>栏目列表-->案例展示</span>
+    </div>
+    <div class="operate">
+      <div class="pull-left">
+        <input type="button" name="" value="添加" class="btn  btn-success" onclick="addCase()">
+      </div>
+      <!-- operate标题结束 -->
+      <div class="list">
+        <div class="tablewrap">
+          <table class="table" width="100%" id="datalist">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>标题</th>
+                <th>介绍</th>
+                <th>添加日期</th>
+                <th>存放路径</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <foreach name="data" item="vo">
+                <tr id="case{$vo.id}">
+                  <td>{$vo.id}</td>
+                  <td>{$vo.title}</td>
+                  <td style="max-width: 300px;">{$vo.info}</td>
+                  <td>{$vo.addtime}</td>
+                  <td>{$vo.img}</td>
+                  <td>
+                    <a href="javascript:;" onclick="delCase({$vo.id})">删除</a>
+                  </td>
+                </tr>
+              </foreach>
+
+            </tbody>
+          </table>
+        </div>
+        <div class="page"></div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <script src="__PUBLIC__/public/js/jquery-3.1.1.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="__PUBLIC__/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript">
+    //alert($)
+    //复选框全部选中
+    $(function () {
+      $("#all").click(function () {
+        if ($(this).prop('checked')) {
+          $('#datalist :checkbox').prop('checked', true)
+        } else {
+          $('#datalist :checkbox').prop('checked', false)
+        }
+      })
+    })
+    function addCase() {
+      window.location.href = 'addCase';
+    }
+    function delCase(id) {
+      if (confirm("是否确认删除")) {
+
+        $.ajax({
+          type: "get",
+          url: "{:U('delCase','','')}",
+          data: { 'id': id },
+          success: function (data) {
+            if (data) {
+              $('#case' + id).remove();
+            } else {
+              alert('删除失败');
+            }
+          }
+        });
+      }
+      return false;
+    }
+  </script>
+</body>
+
+</html>
