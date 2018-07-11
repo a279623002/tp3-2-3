@@ -39,3 +39,30 @@
  
  管理员账号: zero
  密码: 279623002
+ 
+ ## 使用Login层
+ 
+ ### Api控制器
+ 
+ ```
+ <?php
+ namespace Api\Controller;
+ use Think\Controller;
+ use Api\Logic\***Logic;
+ class ***Controller extends Controller {
+ 
+ }
+ ```
+ 使用时记得实例化，如 $SystemLogic = new SystemLogic();
+ ===
+ 
+ ### API Logic层
+ 
+ ```
+<?php 
+ namespace Api\Logic;
+ use Think\Model\RelationModel;
+ class ***Logic extends RelationModel{
+  //到这就和Model差不多
+ }
+ ```
