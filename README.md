@@ -63,6 +63,6 @@
  namespace Api\Logic;
  use Think\Model\RelationModel;
  class ***Logic extends RelationModel{
-  //到这就和Model差不多
+  //到这就和Model层差不多
  }
  ```
