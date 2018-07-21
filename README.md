@@ -66,7 +66,7 @@
   //到这就和Model层差不多
  }
  ```
- ### 使用封装的ApiReturn方法 在底层封装Think\Controller
+ ### 使用封装的apiReturn方法 在底层封装Think\Controller
  
  ```
      /**
